@@ -17,3 +17,5 @@ class Profile extends HTMLElement {
         `;
     }
 }
+
+export default Profile;

@@ -27,3 +27,5 @@ class Header extends HTMLElement {
         `;
     }
 }
+
+export default Header;

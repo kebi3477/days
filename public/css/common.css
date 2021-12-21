@@ -1,3 +1,4 @@
+/* COMMON */
 :root {
     --main-blue: #526C9E;
     --main-lightblue: #91B0EB;
@@ -5,11 +6,11 @@
 }
 @font-face {
     font-family: 'main';
-    src: url('/font/NotoSansKR-Regular.otf');
+    src: url('/font/NotoSansKR-Regular.woff2');
 }
 @font-face {
     font-family: 'bold';
-    src: url('/font/NotoSansKR-Bold.otf');
+    src: url('/font/NotoSansKR-Bold.woff2');
 }
 * {
     margin: 0;
@@ -30,6 +31,7 @@ body {
     height: 100%;
     max-width: 390px;
     max-height: 845px;
+    position: relative;
 }
 main {
     width: 100%;
@@ -44,6 +46,7 @@ main {
 object {
     pointer-events: none;
 }
+
 /* HEADER */
 header {
     width: 100%;
@@ -63,6 +66,26 @@ header {
     justify-content: center;
     cursor: pointer;
     box-shadow: 0px 3px 7px #00000017;
+}
+
+/* FOOTER */
+footer {
+    width: 100%;
+    border-radius: 2rem 2rem 0 0;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 30px;
+    position: absolute;
+    bottom: 0;
+    box-shadow: 5px 0px 5px #00000016;
+}
+.footer__button {
+    flex: 1;
+    text-align: center;
+    padding-bottom: 30px;
+    cursor: pointer;
 }
 
 /* LOVE-TIMER */
@@ -111,9 +134,9 @@ love-timer {
     height: 100px;
     background-color: #fff;
     border-radius: 50%;
-    box-shadow: 0px 3px 6px #00000016;
+    box-shadow: 0px 3px 6px #0000003d;
     overflow: hidden;
-    border: 3px solid #fff;
+    border: 2px solid #fff;
 }
 .profile__image > img {
     width: 100%;
@@ -126,22 +149,61 @@ love-timer {
     margin-top: 5px;
 }
 
-/* FOOTER */
-footer {
+/* CALENDAR */
+.calendar__title {
+    font-size: 35px;
+    font-family: 'bold';
+    color: #fff;
+    padding-left: 30px;
+}
+.calendar {
     width: 100%;
-    border-radius: 2rem 2rem 0 0;
-    background-color: #fff;
+    height: 83%;
+    border-radius: 25px 25px 0 0;
+    background-color: rgba(255,255,255,.5);
+    bottom: 0;
+    position: absolute;
+}
+.calendar__header {
+    width: 100%;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.calendar__label {
+    font-size: 20px;
+    color: #73718F;
+}
+.calendar__button {
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 15px 30px;
-    position: absolute;
-    bottom: 0;
-    box-shadow: 5px 0px 5px #00000016;
 }
-.footer__button {
-    flex: 1;
+.calendar__body {
+    padding: 5px 30px;
+}
+.calendar__row {
     text-align: center;
-    padding-bottom: 30px;
-    cursor: pointer;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+.calendar__row.week > div {
+    font-size: 13px;
+    color: #73718f8c;
+}
+.calendar__row > div {
+    padding: 10px 5px;
+    color: #73718F;
+}
+.calendar__row > div:hover {
+    background-color: #fff;
+}
+
+/* SCHEDULE */
+.schedule__title {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 0 30px;
+    color: #73718F;
 }

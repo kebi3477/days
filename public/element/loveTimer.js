@@ -23,3 +23,5 @@ class LoveTimer extends HTMLElement {
         `;
     }
 }
+
+export default LoveTimer;

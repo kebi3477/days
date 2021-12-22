@@ -38,6 +38,13 @@ class Calendar extends HTMLElement {
             }
             body.append(row);
         }
+
+        document.querySelectorAll('.calendar > *').forEach(el => {
+            el.animate([
+                {opacity: '0'},
+                {opacity: '1'}
+            ], 500);
+        })
     }
 
     setEvent() {

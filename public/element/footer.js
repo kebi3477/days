@@ -12,6 +12,7 @@ class Footer extends HTMLElement {
                 <love-calendar></love-calendar>
             `;
             this.changeSmooth();
+            this.changeColor(this.querySelector('.footer__calendar'));
         }
         this.querySelector('.footer__day').onclick = () => {
             document.querySelector('main').innerHTML = `
@@ -24,12 +25,14 @@ class Footer extends HTMLElement {
                 </div>
             `;
             this.changeSmooth();
+            this.changeColor(this.querySelector('.footer__day'));
         }
         this.querySelector('.footer__dday').onclick = () => {
             document.querySelector('main').innerHTML = `
                 <ddays--list>2021-12-16</ddays--list>
             `;
             this.changeSmooth();
+            this.changeColor(this.querySelector('.footer__dday'));
         }
     }
 
@@ -40,13 +43,20 @@ class Footer extends HTMLElement {
         ], 500);
     }
 
+    changeColor(el) {
+        this.querySelectorAll('.footer__button').forEach(el => {
+            el.classList.remove('active');
+        })
+        el.classList.add('active');
+    }
+
     render() {
         this.innerHTML = `
             <footer>
                 <div class="footer__button footer__calendar">
                     <object data="/icon/calendar.svg" type="image/svg+xml"></object>
                 </div>
-                <div class="footer__button footer__day">
+                <div class="footer__button footer__day active">
                     <object data="/icon/main.svg" type="image/svg+xml"></object>
                 </div>
                 <div class="footer__button footer__dday">

@@ -81,13 +81,53 @@ footer {
     padding: 15px 30px;
     position: absolute;
     bottom: 0;
-    box-shadow: 5px 0px 5px #00000016;
+    box-shadow: 0px -5px 5px #00000016;
 }
 .footer__button {
     flex: 1;
     text-align: center;
     padding-bottom: 30px;
     cursor: pointer;
+    opacity: .5;
+}
+.footer__button.active {
+    opacity: 1;
+}
+/* INTRO */
+.intro {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -75px;
+}
+@keyframes intro {
+    from {
+        transform: translateY(0) scale(1);
+    }
+    to {
+        transform: translateY(-280px) scale(.7);
+    }
+}
+@keyframes moves {
+    0% {
+        transform: translateY(-280px) scale(.7);
+    }
+    50% {
+        transform: translateY(-300px) scale(.7);
+    }
+    100% {
+        transform: translateY(-280px) scale(.7);
+    }
+}
+.intro__simbol {
+    animation-fill-mode: forwards;
+    animation-name: intro, moves;
+    animation-delay: 3s, 6s;
+    animation-duration: 3s, 3s;
+    animation-timing-function: ease, ease-in-out;
+    animation-iteration-count: 1, infinite;
 }
 
 /* LOVE-TIMER */
@@ -162,9 +202,10 @@ love-timer {
     width: 100%;
     height: 83%;
     border-radius: 25px 25px 0 0;
-    background-color: rgba(255,255,255,.5);
+    background-color: rgb(255 255 255 / 75%);
     bottom: 0;
     position: absolute;
+    padding: 10px 0;
 }
 .calendar__header {
     width: 100%;
@@ -183,7 +224,7 @@ love-timer {
     justify-content: center;
 }
 .calendar__body {
-    padding: 5px 30px;
+    padding: 5px 40px;
 }
 .calendar__row {
     text-align: center;
@@ -195,10 +236,16 @@ love-timer {
     color: #73718f8c;
 }
 .calendar__row > div {
+    height: 44px;
     padding: 10px 5px;
     color: #73718F;
+    border-radius: 5rem;
 }
-.calendar__row > div:hover {
+.calendar__row > div.today {
+    background-color: #FFBEBEAA;
+    backdrop-filter: opacity(.9);
+}
+.calendar__row > div:hover { 
     background-color: #fff;
 }
 
@@ -206,8 +253,9 @@ love-timer {
 .schedule__title {
     font-size: 20px;
     font-weight: bold;
-    padding: 0 30px;
+    padding: 0 40px;
     color: #73718F;
+    margin-top: 5px;
 }
 
 /* DDAYS */

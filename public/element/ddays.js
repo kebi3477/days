@@ -10,7 +10,7 @@ class Ddays extends HTMLElement {
         return `${date.getFullYear()}. ${date.getMonth()+1}. ${date.getDate()}.`;
     }
     diffDate(adate, bdate) {
-        return Math.floor((adate.getTime() - bdate.getTime()) / (1000*60*60*24));
+        return Math.ceil((adate.getTime() - bdate.getTime()) / (1000*60*60*24));
     }
     setCards() {
         const cover = this.querySelector('.ddays__cover');

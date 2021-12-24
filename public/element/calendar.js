@@ -15,7 +15,7 @@ class Calendar extends HTMLElement {
         const weeks = Math.ceil(last.getDate() / 7);
         const body = this.querySelector('.calendar__body');
 
-        for(let i = 0; i < weeks+1; i++) {
+        for(let i = 0; i < 6; i++) {
             const row = document.createElement('div');
             row.classList.add('calendar__row');
             for(let j = 1; j < 8; j++) {
@@ -33,6 +33,9 @@ class Calendar extends HTMLElement {
                     if(day <= last.getDate()) {
                         div.innerText = day;
                     }
+                }
+                if(this.year === this.today.getFullYear() && this.month === this.today.getMonth()+1 && day === this.today.getDate()) {
+                    div.classList.add('today');
                 }
                 row.append(div);
             }

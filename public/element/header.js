@@ -6,8 +6,8 @@ class Header extends HTMLElement {
     }
 
     setEvent() {
-        this.changeLocation('.button__theme', '/');
-        this.changeLocation('.button__menu', '/');
+        // this.changeLocation('.button__theme', '/');
+        // this.changeLocation('.button__menu', '/');
     }
 
     changeLocation(className, location) {

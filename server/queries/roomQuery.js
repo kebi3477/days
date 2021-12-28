@@ -1,0 +1,1 @@
+exports.getRoom = "select * from room";

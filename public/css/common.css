@@ -98,36 +98,85 @@ footer {
     width: 100%;
     height: 100%;
     display: flex;
+    flex-flow: column;
     align-items: center;
     justify-content: center;
     margin-top: -75px;
 }
 @keyframes intro {
     from {
-        transform: translateY(0) scale(1);
+        transform: translateY(350px) scale(1);
     }
     to {
-        transform: translateY(-280px) scale(.7);
+        transform: translateY(50px) scale(.7);
     }
 }
 @keyframes moves {
     0% {
-        transform: translateY(-280px) scale(.7);
+        transform: translateY(50px) scale(.7);
     }
     50% {
-        transform: translateY(-300px) scale(.7);
+        transform: translateY(30px) scale(.7);
     }
     100% {
-        transform: translateY(-280px) scale(.7);
+        transform: translateY(50px) scale(.7);
     }
 }
 .intro__simbol {
+    transform: translateY(350px);
     animation-fill-mode: forwards;
     animation-name: intro, moves;
     animation-delay: 3s, 6s;
     animation-duration: 3s, 3s;
     animation-timing-function: ease, ease-in-out;
     animation-iteration-count: 1, infinite;
+}
+/* ROOM */
+@keyframes room {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+.room {
+    width: 100%;
+    height: 100%;
+    flex: 1;
+    margin-top: 50px;
+    overflow-x: hidden;
+    opacity: 0;
+    animation: room 1s ease-in-out 5s forwards;
+}
+.room__cover {
+    width: 300%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    overflow-x: auto;
+    transform: translate(calc(-100% / 3));
+}
+.room__buttons {
+    height: 50%;
+    display: flex;
+    padding: 5rem;
+    gap: 1rem;
+}
+.room__button {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: .5rem;
+}
+.room__create {
+    background-color: red;
+}
+.room__find {
+    background-color: purple;
 }
 
 /* LOVE-TIMER */

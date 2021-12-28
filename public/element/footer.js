@@ -2,10 +2,10 @@ class Footer extends HTMLElement {
     constructor() {
         super();
         this.render();
-        this.setEvents();
+        this.setEvent();
     }
 
-    setEvents() {
+    setEvent() {
         this.querySelector('.footer__calendar').onclick = () => {
             document.querySelector('main').innerHTML = `
                 <div class="calendar__title">Calendar</div>

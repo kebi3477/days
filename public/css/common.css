@@ -157,6 +157,7 @@ footer {
     align-items: center;
     overflow-x: auto;
     transform: translate(calc(-100% / 3));
+    transition: 2s ease-in-out;
 }
 .room__buttons {
     height: 50%;
@@ -173,10 +174,18 @@ footer {
     border-radius: .5rem;
 }
 .room__create {
-    background-color: red;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    padding: 2rem;
+    gap: 1rem;
 }
 .room__find {
-    background-color: purple;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    padding: 2rem;
+    gap: 1rem;
 }
 
 /* LOVE-TIMER */
@@ -198,9 +207,6 @@ love-timer {
     color: #fff;
     margin: 0 auto;
     margin-top: 50px;
-}
-.lovetimer__label {
-    
 }
 .lovetimer__day {
     font-size: 55px;

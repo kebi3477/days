@@ -1,6 +1,7 @@
 class Calendar extends HTMLElement {
     constructor() {
         super();
+        this.classList.add('calendar')
         this.today = new Date();
         this.year = this.today.getFullYear();
         this.month = this.today.getMonth()+1;
@@ -42,7 +43,7 @@ class Calendar extends HTMLElement {
             body.append(row);
         }
 
-        document.querySelectorAll('.calendar > *').forEach(el => {
+        this.querySelectorAll('*').forEach(el => {
             el.animate([
                 {opacity: '0'},
                 {opacity: '1'}
@@ -77,29 +78,27 @@ class Calendar extends HTMLElement {
     
     render() {
         this.innerHTML = `
-            <div class="calendar">
-                <div class="calendar__header">
-                    <div class="calendar__button prev">
-                        <object data="/icon/prev.svg" type="image/svg+xml"></object>
-                    </div>
-                    <div class="calendar__label">${this.year}. ${this.month}.</div>
-                    <div class="calendar__button next">
-                        <object data="/icon/next.svg" type="image/svg+xml"></object>
-                    </div>
+            <div class="calendar__header">
+                <div class="calendar__button prev">
+                    <object data="/icon/prev.svg" type="image/svg+xml"></object>
                 </div>
-                <div class="calendar__body">
-                    <div class="calendar__row week">
-                        <div>Mon</div>
-                        <div>Tue</div>
-                        <div>Wed</div>
-                        <div>Thu</div>
-                        <div>Fri</div>
-                        <div>Sat</div>
-                        <div>Sun</div>
-                    </div>
+                <div class="calendar__label">${this.year}. ${this.month}.</div>
+                <div class="calendar__button next">
+                    <object data="/icon/next.svg" type="image/svg+xml"></object>
                 </div>
-                <div class="schedule__title">Today</div>
             </div>
+            <div class="calendar__body">
+                <div class="calendar__row week">
+                    <div>Mon</div>
+                    <div>Tue</div>
+                    <div>Wed</div>
+                    <div>Thu</div>
+                    <div>Fri</div>
+                    <div>Sat</div>
+                    <div>Sun</div>
+                </div>
+            </div>
+            <div class="schedule__title">Today</div>
         `;
     }
 }

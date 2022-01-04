@@ -226,6 +226,9 @@ love-timer {
     align-items: center;
     margin-top: 80px;
 }
+.profile {
+    cursor: pointer;
+}
 .profile__image {
     width: 100px;
     height: 100px;

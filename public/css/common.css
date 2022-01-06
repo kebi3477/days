@@ -49,6 +49,71 @@ object {
     pointer-events: none;
 }
 
+/* MENU */
+.menu {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    top: 0px;
+    visibility: hidden;
+    opacity: 0;
+    transition: .5s;
+    z-index: 5;
+}
+.menu__background {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .5);
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    transition: .5s;
+}
+.menu.active {
+    visibility: visible;
+    opacity: 1;
+}
+.menu.active > .menu__background {
+    opacity: 1;
+}
+.menu.active > .menu__body {
+    right: 0;
+}
+.menu__body {
+    background-color: #fff;
+    width: 75%;
+    height: 100%;
+    position: absolute;
+    right: -75%;
+    z-index: 1;
+    transition: .5s;
+}
+.menu__list {
+    display: flex;
+    flex-flow: column;
+}
+.menu__logo {
+    text-align: center;
+    padding: 20% 0;
+}
+.menu__logo > object {
+    width: 20%;
+}
+.menu__item {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    padding: 15px;
+    font-size: 18px;
+    color: #73718F;
+    align-items: center;
+    cursor: pointer;
+    transition: ease-in-out .2s;
+} 
+.menu__item:hover {
+    background-color: #73718f;
+    color: #fff;
+}
 /* HEADER */
 header {
     width: 100%;

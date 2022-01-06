@@ -6,6 +6,9 @@ class Header extends HTMLElement {
     }
 
     setEvent() {
+        this.querySelector('.button__menu').onclick = () => {
+            this.querySelector('menu-item').classList.add('active');
+        }
         // this.changeLocation('.button__theme', '/');
         // this.changeLocation('.button__menu', '/');
     }
@@ -16,6 +19,7 @@ class Header extends HTMLElement {
 
     render() {
         this.innerHTML = `
+            <menu-item></menu-item>
             <header>
                 <div class="button__header button__theme">
                     <object data="/image/theme.svg" type="image/svg+xml"></object>

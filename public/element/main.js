@@ -8,7 +8,7 @@ class Main extends HTMLElement {
 
     async getUsers() {
         const room = localStorage.getItem('days-room');
-        const users = await fetchModule.get(`/user/${room}`);
+        const users = await fetchModule.get(`/user/all/${room}`);
         this.startDate = users[0].r_sdate;
         this.user1 = users[0] && JSON.stringify(users[0]);
         this.user2 = users[1] && JSON.stringify(users[1]);

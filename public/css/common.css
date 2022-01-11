@@ -313,7 +313,100 @@ love-timer {
     text-align: center;
     margin-top: 5px;
 }
-
+/* PROFILE-EDIT */
+.profile-edit {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 3px 6px #333;
+    top: 0;
+    z-index: 5;
+    opacity: 0;
+    transition: .5s;
+    visibility: hidden;
+}
+.profile-edit.active {
+    opacity: 1;
+    visibility: visible;
+}
+.profile-edit__background {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, .2);
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.profile-edit__body {
+    width: 250px;
+    height: 300px;
+    border-radius: 10px;
+    background-color: #fff;
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-rows: 3fr 1.3fr;
+    overflow: hidden;
+}
+.profile-edit__image {
+    width: 100%;
+    height: 100%;
+    background-color: #EDEDF3;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.profile-edit__label {
+    left: 15px;
+    bottom: 15px;
+    position: absolute;
+    color: #fff;
+    font-size: 20px;
+}
+.profile-edit__camera {
+    right: 15px;
+    bottom: 15px;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 100%;
+    box-shadow: 1px 3px 6px #3333;
+    cursor: pointer;
+}
+.profile-edit__edit {
+    right: 15px;
+    top: 15px;
+    position: absolute;
+    cursor: pointer;
+}
+.profile-edit__birth {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+.profile-edit__birth.flex {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.profile-edit__birth--red {
+    color: #EB8794;
+    font-size: 20px;
+    font-weight: bold;
+}
+.profile-edit__birth--small {
+    color: #9694AC;
+    font-size: 12px;
+}
 /* CALENDAR */
 .calendar__title {
     font-size: 35px;

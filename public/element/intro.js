@@ -3,8 +3,16 @@ import fetchModule from '/module/fetch.js';
 class Intro extends HTMLElement {
     constructor() {
         super();
-        this.render();
-        this.setEvent();
+        const room = localStorage.getItem('days-room');
+        
+        if(room) {
+            document.querySelector('main').innerHTML = `
+            <main-page></main-page>
+            `;
+        } else {
+            this.render();
+            this.setEvent();
+        }
     }
 
     setEvent() {

@@ -9,7 +9,9 @@ app.post = async (url, json) => {
 }
 // READ
 app.get = async url => {
-    return await fetch(url).then(data => data.json())
+    return fetch(url)
+    .then(data => data.json())
+    .catch(err => err);
 }
 
 export default app;

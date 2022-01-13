@@ -7,7 +7,7 @@ class Intro extends HTMLElement {
         
         if(room) {
             document.querySelector('main').innerHTML = `
-            <main-page></main-page>
+                <main-page></main-page>
             `;
         } else {
             this.render();

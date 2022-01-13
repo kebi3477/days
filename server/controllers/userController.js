@@ -10,6 +10,19 @@ exports.getUser = async (req, res) => {
     }
 }
 
+exports.updateUser = async (req, res) => {
+    const { id } = req.params;
+    const user = req.body;
+    user.u_id = id;
+    user.u_img = 'kebi.png';
+    try {
+        const result = await userService.updateUser(user);
+        return res.send(result);
+    } catch(err) {
+        return res.status(500).json(err);
+    }
+}
+
 exports.getUsers = async (req, res) => {
     const { password } = req.params;
     try {

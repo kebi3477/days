@@ -7,6 +7,14 @@ app.post = async (url, json) => {
         headers: {'Content-Type': 'application/json'}
     }).then(data => data.text())
 }
+// UPDATE
+app.put = async (url, json) => {
+    return await fetch(url, {
+        method: 'PUT',
+        body: JSON.stringify(json),
+        headers: {'Content-Type': 'application/json'}
+    }).then(data => data.text())
+}
 // READ
 app.get = async url => {
     return fetch(url)

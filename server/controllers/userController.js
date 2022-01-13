@@ -13,8 +13,9 @@ exports.getUser = async (req, res) => {
 exports.updateUser = async (req, res) => {
     const { id } = req.params;
     const user = req.body;
+
     user.u_id = id;
-    user.u_img = 'kebi.png';
+    user.u_img = req.file;
     try {
         const result = await userService.updateUser(user);
         return res.send(result);

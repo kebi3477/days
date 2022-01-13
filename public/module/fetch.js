@@ -21,5 +21,12 @@ app.get = async url => {
     .then(data => data.json())
     .catch(err => err);
 }
+// UPDATE BY FORMDATA
+app.putFormData = async (url, formData) => {
+    return await fetch(url, {
+        method: 'PUT',
+        body: formData,
+    }).then(data => data.text())
+}
 
 export default app;

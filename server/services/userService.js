@@ -12,7 +12,14 @@ exports.getUser = async id => {
 
 exports.updateUser = async user => {
     try {
-        let data = await pool.query(userQuery.updateUser, [user.u_name, user.u_birth, user.u_img, user.u_id])
+        let dataArr = [], data;
+        if(user.u_img) {
+            dataArr = [user.u_name, user.u_birth, user.u_img.filename, user.u_id];
+            data = await pool.query(userQuery.updateUserImage, dataArr)
+        } else {
+            dataArr = [user.u_name, user.u_birth, user.u_id];
+            data = await pool.query(userQuery.updateUser, dataArr)
+        }
         return data[0];
     } catch (err) {
         throw Error(err);

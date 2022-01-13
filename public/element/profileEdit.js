@@ -30,13 +30,28 @@ class ProfileEdit extends HTMLElement {
         this.querySelector('.edit-form__close').onclick = () => {
             this.editForm.classList.remove('active');
         }
+        this.querySelector('#user_profile').onchange = () => {
+            const file = this.querySelector('#user_profile').files[0];
+            const editImage = this.editForm.querySelector('.edit-form__image');
+            const reader = new FileReader();
+            
+            reader.addEventListener("load", function() {
+                editImage.style.backgroundImage = `url(${reader.result})`;
+            }, false)
+            
+            if(file) {
+                reader.readAsDataURL(file);
+            }
+        }
         this.querySelector('.edit-form__save').onclick = () => {
             const formData = new FormData(this.editForm);
             let json = {};
             formData.forEach((val, key) => {
-                json[key] = val;
+                if(key !== 'u_img') {
+                    json[key] = val;
+                }
             })
-            fetchModule.put(`/user/${this.user.u_id}`, json)
+            fetchModule.putFormData(`/user/${this.user.u_id}`, formData)
             .then(res => {
                 if(res) {
                     alert('수정 완료!');
@@ -61,8 +76,8 @@ class ProfileEdit extends HTMLElement {
                     <div class="edit-form__image"></div>
                     <label class="edit-form__camera" for="user_profile">
                         <object data="/icon/camera.svg" type="image/svg+xml"></object>
-                        <input type="file" id="user_profile" name="u_img">
                     </label>
+                    <input type="file" id="user_profile" name="u_img">
                 </div>
                 <div class="edit-form__info">
                     <input class="edit-form__name" placeholder="이름을 입력해주세요." value="${this.user.u_name}" name="u_name">

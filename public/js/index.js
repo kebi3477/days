@@ -6,6 +6,7 @@ import Main from '../element/main.js';
 import LoveTimer from '../element/loveTimer.js';
 import Profile from '../element/profile.js';
 import ProfileEdit from '../element/profileEdit.js';
+import WordEdit from '../element/wordEdit.js';
 import Calendar from '../element/calendar.js';
 import Ddays from '../element/ddays.js';
 
@@ -19,5 +20,6 @@ customEl.define("main-page", Main);
 customEl.define("love-timer", LoveTimer);
 customEl.define("profile-item", Profile);
 customEl.define("profile-edit", ProfileEdit);
+customEl.define("word-edit", WordEdit);
 customEl.define("love-calendar", Calendar);
 customEl.define("ddays--list", Ddays);

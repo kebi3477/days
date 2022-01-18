@@ -29,3 +29,13 @@ exports.setRoom = async password => {
         throw Error(err);
     }
 }
+
+exports.updateRoom = async (password, word) => {
+    try {
+        let data = await pool.query(roomQuery.updateRoom, [word, password]);
+        return data[0];
+    } catch (err) {
+        console.log(err);
+        throw Error(err);
+    }
+}

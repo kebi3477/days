@@ -9,8 +9,6 @@ class Header extends HTMLElement {
         this.querySelector('.button__menu').onclick = () => {
             this.querySelector('menu-item').classList.add('active');
         }
-        // this.changeLocation('.button__theme', '/');
-        // this.changeLocation('.button__menu', '/');
     }
 
     changeLocation(className, location) {

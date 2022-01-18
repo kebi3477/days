@@ -7,6 +7,9 @@ class Menu extends HTMLElement {
     }
 
     setEvent() {
+        this.querySelector('.word').onclick = () => {
+            this.querySelector('word-edit').classList.add('active');
+        }
         this.querySelector('.menu__background').onclick = () => {
             this.classList.remove('active');
         }
@@ -23,7 +26,7 @@ class Menu extends HTMLElement {
                         <object data="/icon/hand.svg" type="image/svg+xml"></object>
                         <div>커플이 된 날 변경</div>
                     </div>
-                    <div class="menu__item">
+                    <div class="menu__item word">
                         <object data="/icon/feather.svg" type="image/svg+xml"></object>
                         <div>상단 문구 수정</div>
                     </div>
@@ -34,6 +37,7 @@ class Menu extends HTMLElement {
                 </div>
             </div>
             <div class="menu__background"></div>
+            <word-edit></word-edit>
         `;
     }
 }

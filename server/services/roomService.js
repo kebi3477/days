@@ -30,9 +30,16 @@ exports.setRoom = async password => {
     }
 }
 
-exports.updateRoom = async (password, word) => {
+exports.updateRoom = async (password, body) => {
     try {
-        let data = await pool.query(roomQuery.updateRoom, [word, password]);
+        const { word, date } = body;
+        let data;
+        
+        if(word) {
+            data = await pool.query(roomQuery.updateRoomWord, [word, password]);
+        } else {
+            data = await pool.query(roomQuery.updateRoomDate, [date, password]);
+        }
         return data[0];
     } catch (err) {
         console.log(err);

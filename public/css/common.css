@@ -90,7 +90,7 @@ input[type=file] {
     position: absolute;
     right: -75%;
     z-index: 1;
-    transition: .5s;
+    transition: 0.5s;
 }
 .menu__list {
     display: flex;

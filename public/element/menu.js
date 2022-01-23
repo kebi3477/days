@@ -7,8 +7,11 @@ class Menu extends HTMLElement {
     }
 
     setEvent() {
+        this.querySelector('.date').onclick = () => {
+            this.querySelector('edit-date').classList.add('active');
+        }
         this.querySelector('.word').onclick = () => {
-            this.querySelector('word-edit').classList.add('active');
+            this.querySelector('edit-word').classList.add('active');
         }
         this.querySelector('.menu__background').onclick = () => {
             this.classList.remove('active');
@@ -22,7 +25,7 @@ class Menu extends HTMLElement {
                     <div class="menu__logo">
                         <object data="/image/simbol.svg" type="image/svg+xml"></object>
                     </div>
-                    <div class="menu__item">
+                    <div class="menu__item date">
                         <object data="/icon/hand.svg" type="image/svg+xml"></object>
                         <div>커플이 된 날 변경</div>
                     </div>
@@ -37,7 +40,8 @@ class Menu extends HTMLElement {
                 </div>
             </div>
             <div class="menu__background"></div>
-            <word-edit></word-edit>
+            <edit-word></edit-word>
+            <edit-date></edit-date>
         `;
     }
 }

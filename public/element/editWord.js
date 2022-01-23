@@ -1,6 +1,6 @@
 import fetchModule from '/module/fetch.js';
 
-class WordEdit extends HTMLElement {
+class EditWord extends HTMLElement {
     constructor() {
         super();
         this.classList.add('edit-form');
@@ -14,13 +14,19 @@ class WordEdit extends HTMLElement {
         this.querySelector('.edit-form__save').onclick = async () => {
             const password = localStorage.getItem('days-room');
             const word = this.querySelector('.edit-form__word').value;
-            const data = fetchModule.put(`/room/${password}`, { word: word });
 
-            if(data === '0') {
-
+            if(word === "") {
+                alert('값이 비어있습니다!');
             } else {
-                
+                const data = fetchModule.put(`/room/${password}`, { word: word });
+                if(data) {
+                    alert('저장 완료!');
+                    document.querySelector('main').innerHTML = `<main-page></main-page>`;
+                } else {
+                    alert('데이터를 다시 확인해보세요!');
+                }
             }
+
         }
     }
 
@@ -44,4 +50,4 @@ class WordEdit extends HTMLElement {
     }
 }
 
-export default WordEdit;
+export default EditWord;

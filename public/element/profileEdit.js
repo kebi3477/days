@@ -57,7 +57,7 @@ class ProfileEdit extends HTMLElement {
                     alert('수정 완료!');
                     document.querySelector('main').innerHTML = `<main-page></main-page>`;
                 } else {
-                    alert('정보를 다시 확인해주세요!')
+                    alert('정보를 다시 확인해주세요!');
                 }
             })
         }

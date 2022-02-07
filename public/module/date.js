@@ -1,10 +1,10 @@
 const app = {};
-
+// YYYY. MM. DD.
 app.normal = string => {
     const date = new Date(string);
     return `${date.getFullYear()}. ${date.getMonth()+1}. ${date.getDate()}.`;
 }
-
+// YYYY-MM-DD
 app.normalDash = string => {
     const date = new Date(string);
     const month = (date.getMonth()+1) < 10 ? "0" + (date.getMonth()+1) : date.getMonth()+1;
@@ -12,7 +12,7 @@ app.normalDash = string => {
 
     return `${date.getFullYear()}-${month}-${dateFormat}`;
 }
-
+// 생일 D-day
 app.ddayBirth = string => {
     const birth = new Date(string);
     const now = new Date();

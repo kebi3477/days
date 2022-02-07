@@ -9,9 +9,15 @@ class Main extends HTMLElement {
     async getUsers() {
         const room = localStorage.getItem('days-room');
         const users = await fetchModule.get(`/user/all/${room}`);
-        this.room = users[0] && JSON.stringify(users[0]);
-        this.user1 = users[0] && JSON.stringify(users[0]);
-        this.user2 = users[1] && JSON.stringify(users[1]);
+        if(!users.length) {
+            const result = await fetchModule.post(`/user/all/${room}`);
+            console.log(result);
+            // this.getUsers();
+        } else {
+            this.room = users[0] && JSON.stringify(users[0]);
+            this.user1 = users[0] && JSON.stringify(users[0]);
+            this.user2 = users[1] && JSON.stringify(users[1]);
+        }
         this.render();
     }
 

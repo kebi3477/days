@@ -33,3 +33,13 @@ exports.getUsers = async (req, res) => {
         return res.status(500).json(err);
     }
 }
+
+exports.setUsers = async (req, res) => {
+    const { password } = req.params;
+    try {
+        const rows = await userService.setUsers(password);
+        return res.json(rows);
+    } catch(err) {
+        return res.status(500).json(err);
+    }
+}

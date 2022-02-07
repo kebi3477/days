@@ -1,6 +1,6 @@
 const app = {};
 // CREATE
-app.post = async (url, json) => {
+app.post = async (url, json={}) => {
     return await fetch(url, {
         method: 'POST',
         body: JSON.stringify(json),
@@ -8,7 +8,7 @@ app.post = async (url, json) => {
     }).then(data => data.text())
 }
 // UPDATE
-app.put = async (url, json) => {
+app.put = async (url, json={}) => {
     return await fetch(url, {
         method: 'PUT',
         body: JSON.stringify(json),

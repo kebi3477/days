@@ -34,3 +34,13 @@ exports.getUsers = async password => {
         throw Error(err);
     }
 }
+
+exports.setUsers = async password => {
+    try {
+        let data = await pool.query(userQuery.setUsers, [password, password]);
+        console.log(password);
+        return data[0];
+    } catch (err) {
+        throw Error(err);
+    }
+}

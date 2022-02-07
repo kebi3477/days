@@ -19,13 +19,20 @@ class Profile extends HTMLElement {
         }
     }
 
+    setImage() {
+        if(this.image) {
+            const img = document.createElement('img');
+            img.src = `/user_image/${this.image}`;
+            this.querySelector('.profile__image').append(img);
+        }
+    }
+
     render() {
         this.innerHTML = `
-            <div class="profile__image">
-                <img src="/user_image/${this.image}">
-            </div>
+            <div class="profile__image"></div>
             <div class="profile__name">${this.name}</div>
         `;
+        this.setImage();
     }
 }
 
